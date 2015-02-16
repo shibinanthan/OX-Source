@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenXstan.Common", "OpenXstan.Common\OpenXstan.Common.csproj", "{5AB5D9F9-081C-44E9-B51E-DD5328BCCEAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenXstan.Service", "OpenXstan.Service\OpenXstan.Service.csproj", "{EB4AF178-05E8-49E7-9C72-0C0483637C92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenXstan.WcfService", "OpenXstan.WcfService\OpenXstan.WcfService.csproj", "{0B3E3443-3B8E-4D3F-9632-FBFED7ABB214}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenXstan.Web", "OpenXstan.Web\OpenXstan.Web.csproj", "{566B3B35-3B73-4C67-B334-44918DFB1F0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenXstan.Web.Tests", "OpenXstan.Web.Tests\OpenXstan.Web.Tests.csproj", "{0304FF10-36F7-4F27-B4CA-95FC808EF669}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://shibinanthan.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = OpenXstan.Common\\OpenXstan.Common.csproj
+		SccProjectName1 = OpenXstan.Common
+		SccLocalPath1 = OpenXstan.Common
+		SccProjectUniqueName2 = OpenXstan.Service\\OpenXstan.Service.csproj
+		SccProjectName2 = OpenXstan.Service
+		SccLocalPath2 = OpenXstan.Service
+		SccProjectUniqueName3 = OpenXstan.WcfService\\OpenXstan.WcfService.csproj
+		SccProjectName3 = OpenXstan.WcfService
+		SccLocalPath3 = OpenXstan.WcfService
+		SccProjectUniqueName4 = OpenXstan.Web.Tests\\OpenXstan.Web.Tests.csproj
+		SccProjectName4 = OpenXstan.Web.Tests
+		SccLocalPath4 = OpenXstan.Web.Tests
+		SccProjectUniqueName5 = OpenXstan.Web\\OpenXstan.Web.csproj
+		SccProjectName5 = OpenXstan.Web
+		SccLocalPath5 = OpenXstan.Web
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AB5D9F9-081C-44E9-B51E-DD5328BCCEAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AB5D9F9-081C-44E9-B51E-DD5328BCCEAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AB5D9F9-081C-44E9-B51E-DD5328BCCEAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AB5D9F9-081C-44E9-B51E-DD5328BCCEAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB4AF178-05E8-49E7-9C72-0C0483637C92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB4AF178-05E8-49E7-9C72-0C0483637C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB4AF178-05E8-49E7-9C72-0C0483637C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB4AF178-05E8-49E7-9C72-0C0483637C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B3E3443-3B8E-4D3F-9632-FBFED7ABB214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B3E3443-3B8E-4D3F-9632-FBFED7ABB214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B3E3443-3B8E-4D3F-9632-FBFED7ABB214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B3E3443-3B8E-4D3F-9632-FBFED7ABB214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{566B3B35-3B73-4C67-B334-44918DFB1F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{566B3B35-3B73-4C67-B334-44918DFB1F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{566B3B35-3B73-4C67-B334-44918DFB1F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{566B3B35-3B73-4C67-B334-44918DFB1F0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0304FF10-36F7-4F27-B4CA-95FC808EF669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0304FF10-36F7-4F27-B4CA-95FC808EF669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0304FF10-36F7-4F27-B4CA-95FC808EF669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0304FF10-36F7-4F27-B4CA-95FC808EF669}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

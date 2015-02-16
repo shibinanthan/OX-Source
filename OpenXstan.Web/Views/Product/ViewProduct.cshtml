@@ -1,0 +1,27 @@
+﻿@using OpenXstan.Web.Models
+@*@Model Product*@
+
+@{
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+<div id="Main">
+       
+    <div id="showProduct">
+        <span>
+            <h4>Product Id: @Model.Id<br />
+                Description: @Model.Description<br />
+                Product Name: @Model.Title <br />
+                Price: $@Model.CurrentPrice<br />
+                Available Date: @Model.EndTime.ToShortDateString()</h4>
+        </span>
+    </div>
+       
+    <div>
+        @Html.ActionLink("Back", "Index")
+    </div>
+</div>
+
+@section PageFeature{
+    <span>This section describes the features of this product</span>
+    <span>@System.DateTime.Now</span>
+}

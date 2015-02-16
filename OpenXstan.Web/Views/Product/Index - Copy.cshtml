@@ -1,0 +1,79 @@
+﻿    @using OpenXstan.Web.Models
+    @model ProductViewModel
+
+    @{
+        Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+    }
+    <div id="Main">
+        <div id="ListProduct">
+            @*<br /><span>Use of local object</span>
+            @{ 
+                var productModel = (ProductViewModel)ViewData.Model;
+             }
+            @foreach (var product in productModel.Product)
+            {
+                <div id="showProduct1">
+                    <span>
+                        <h4>@product.Title - @product.CurrentPrice</h4>
+                    </span>
+                </div>
+            }*@
+            
+            @foreach (var product in Model.Product)
+            {
+                <div id="showProduct">
+                    <span>
+                        <h5>
+                            @product.Title - 
+                            @Html.ActionLink("Show Price", "Detail", new { id = product.Id })
+                        </h5>
+                    </span>
+                    <input type="button" id="productDetails" value="Details" onclick="ShowProduct(@product.Id)" />
+                </div>
+            }
+        </div>
+
+        @*<div>
+            @ListProducts(productModel.Product)
+        </div>*@
+
+        <div>
+            @Html.ActionLink("New Product", "Save")
+        </div>
+    </div>
+
+    @*@helper ListProducts(List<Product> products)
+    {
+        <ol>
+            @foreach (var product in products)
+            {
+                <li>@product.Title</li>
+            }
+        </ol>
+    }*@
+
+    @section PageFeature{
+        <span>This section describes the features of this product</span>
+        <span>@System.DateTime.Now</span>
+    }
+
+    <script type="text/javascript">
+        function ShowProduct(productId)
+        {
+            alert(productId);
+
+            $.ajax({
+                type: "GET",
+                url: "/Product/Detail/",
+                data: { id : productId },
+                contentType: "application/json",
+                format: "json",
+                success: function (data, status) {
+                    alert(data);
+                },
+                error: function (data) {
+
+                }
+            });
+        }
+    </script>

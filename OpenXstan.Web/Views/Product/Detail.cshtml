@@ -1,0 +1,13 @@
+﻿@using OpenXstan.Common
+@model Product
+
+<div id="showProductPartial">
+    <table>
+        <tr>
+            <td style="width:200px">@Model.Title </td>
+            <td style="width:200px">@Model.Description </td>
+            <td style="width:100px">@Html.ActionLink("Show Price", "Detail", new { id = Model.Id })</td>
+            <td style="width:100px"><input type="button" id="productDetails" value="Details" onclick="ShowProduct('@Model.Id')" /></td>
+        </tr>
+    </table>
+</div>

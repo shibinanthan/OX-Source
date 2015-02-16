@@ -1,0 +1,164 @@
+﻿@using OpenXstan.Web.Models
+@using OpenXstan.Web.HtmlHelpers;
+@model Product
+
+@{ Layout = "~/Views/Shared/_LayoutMaster.cshtml"; }
+<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" />
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.ValidationSummary()
+    </div>
+    <div id="SaveProduct">
+        @Html.HiddenFor(model => model.IsEdit, new { @Value = true })
+        <div>
+            @Html.LabelFor(model => model.Title)<br />
+            @Html.EditorFor(model => model.Title)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Description)<br />
+            @Html.EditorFor(model => model.Description)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.StartPrice)<br />
+            @Html.EditorFor(model => model.StartPrice)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.StartTime)<br />
+            @Html.EditorFor(model => model.StartTime)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.EndTime)<br />
+            @Html.EditorFor(model => model.EndTime)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Category)<br />
+            @Html.ListBoxFor(x=> x.CategoryID, new  MultiSelectList(Model.Category, "Id", "Name", Model.CategoryID))
+        </div>
+        <div>
+            @Html.NumericTextBox("test")
+            @Html.TextBox("name")
+        </div>
+        <div>
+            <br />
+            @Html.AntiForgeryToken()
+            <input type="submit" value="Save" /> &nbsp;
+            <input type="button" id="saveDetails" value="Save Ajax"/>
+        </div>
+    </div>
+}
+<style>
+    .selected {
+        color: red;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $("#saveDetails").on("click", function () {
+            SaveProduct();
+        });
+
+        if (!Modernizr.inputtypes.datetime) {
+            $("input[type='datetime']").datepicker();
+        }
+    });
+</script>
+<script type="text/javascript">
+
+    function SaveProduct() {
+
+        var product = {
+            "Title": $("#Title").val(),
+            "Description": $("#Description").val(),
+            "StartPrice": $("#StartPrice").val(),
+            "StartTime": $("#StartTime").val(),
+            "EndTime": $("#EndTime").val()
+        };
+        var antiForgeryToken = $('input[name="__RequestVerificationToken"]').val();
+        OriginalAjaxCall(JSON.stringify(product), antiForgeryToken);
+
+        //$.ajax({
+        //    type: "POST",
+        //    url: "/Product/Save/",
+        //    data: JSON.stringify(product),
+        //    contentType: "application/json",
+        //    format: "json",
+        //    headers: {
+        //        "__RequestVerificationToken": antiForgeryToken
+        //    },
+        //    success: function (data, status) {
+        //        alert("success:" + data);
+        //        proxy.submitNewProduct(JSON.stringify(product));
+        //    },
+        //    error: function (data) {
+        //        alert(data.responseText);
+        //    }
+        //});
+
+        //Not used, this is alternative way of doing antiforgery token validation
+        @functions{
+            public string TokenHeaderValue()
+            {
+                string cookieToken, formToken;
+                AntiForgery.GetTokens(null, out cookieToken, out formToken);
+                return cookieToken + ":" + formToken;
+            }
+        }
+    }
+
+    function OriginalAjaxCall(data, headerValue) {
+        var xmlHttp;
+
+        try { xmlHttp = new XMLHttpRequest(); }
+        catch (e) { }
+
+        if (typeof xmlHttp === "undefined") {
+                try { xmlHttp = new ActiveXObject("Msxml2.XMLHTTP.6.0"); }
+                catch (e) { }
+                try { xmlHttp = new ActiveXObject("Msxml2.XMLHTTP.3.0"); }
+                catch (e) { }
+                try { xmlHttp = new ActiveXObject("Microsoft.XMLHTTP"); }
+                catch (e) { }
+                throw new Error("This browser does not support XMLHttpRequest.");
+        }
+
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4) {
+                if (xmlHttp.status == 200) {
+                    alert(xmlHttp.responseText);
+                }
+            }
+        }
+
+        xmlHttp.onerror = function () {
+            alert(xmlHttp.responseText);
+        }
+
+        xmlHttp.open("POST", "/Product/Save/", true);
+        xmlHttp.responseType = "application/json";
+        xmlHttp.setRequestHeader("Content-Type", "application/json");
+        xmlHttp.setRequestHeader("__RequestVerificationToken", headerValue);
+        xmlHttp.send(data);
+    }
+
+    function JQuery() {
+        //var products = jQuery.parseJSON('{"Product": [{"Title": "iPhone", "Description": "Apple"},'+
+        //                                '{"Title": "Tab", "Description": "Samsung"}], '+
+        //                                '"Price": "12.50", '+
+        //                                '"Category": [{"Id": "1", "Name": "A"}, {"Id": "2", "Name": "b"}]}');
+
+        //var selectedValue='';
+        //var elements = document.getElementById("CategoryID");
+        //for (var index = 0; index < elements.length; index++) {
+        //    if(elements[index].selected == true)
+        //    {
+        //        selectedValue = selectedValue + ','+ elements[index].value;
+        //    }
+        //}
+
+        //selectedValue = $('#CategoryID').val();
+        //$("option").eq(2).addClass("selected");
+        //var divTags = $("body > div");
+        //$("option").eq(3).addClass("selected");
+    }
+</script>

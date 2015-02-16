@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        * {
+            font-family: Verdana;
+            font-size: 11px;
+            line-height: 14px;
+        }
+
+        .submit {
+            margin-left: 125px;
+            margin-top: 10px;
+        }
+
+        .label {
+            display: block;
+            float: left;
+            width: 120px;
+            text-align: right;
+            margin-right: 5px;
+        }
+
+        .form-row {
+            padding: 5px 0;
+            clear: both;
+            width: 700px;
+        }
+
+        label.error {
+            width: 250px;
+            display: block;
+            float: left;
+            color: red;
+            padding-left: 10px;
+        }
+
+        input[type=text], textarea {
+            width: 250px;
+            float: left;
+        }
+
+        textarea {
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Query Execution Window</h2>
+    <script src="Scripts/jquery-1.8.3.js"></script>
+    <script src="Scripts/jquery.validate.js"></script>
+    <div style="vertical-align:central;padding:20px">
+        <table width="90%" cellpadding="2" cellspacing="2">
+            <tr>
+                <td>
+                    <label>
+                        <b>Select Database:</b>
+                        <div>
+                            <select id="dbList">
+                                <option value="-1">--Database--</option>
+                                <option value="db1">db1</option>
+                                <option value="db2">db2</option>
+                                <option value="db3">db3</option>
+                            </select>
+                        </div>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <b>Query:</b>
+                        <div>
+                            <textarea id="sqlText" name="sqlText" style="width:60%"></textarea>
+                        </div>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <input type="submit" value="Submit" id="Submit" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="resultsContainer"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#Submit").on("click", function (e) {
+                var dbName = $("#dbList").val();
+                var dbQuery = $("#sqlText").val();
+                if(dbName == -1)
+                {
+                    alert("Please select a DB name");
+                    return false;
+                }
+                if (dbQuery.trim().length == 0) {
+                    alert("Please enter a DB query");
+                    return false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

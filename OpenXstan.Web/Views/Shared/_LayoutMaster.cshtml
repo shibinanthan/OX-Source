@@ -1,0 +1,55 @@
+﻿@using OpenXstan.Web.Helpers;
+
+@{
+    var _helper = new XposureHelper();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @*<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=0.0, minimum-scale=1.0, maximum-scale=1.0" />*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+</head>
+<body>
+    <header>
+        <div class="float-right">
+            <nav>
+                <ul id="menu">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="float-right">
+            Welcome <b>@_helper.UserName</b>,
+        </div>
+        <h2>
+        <span>Product Home</span>
+        </h2>
+    </header>
+    @RenderSection("PageFeature", required: false)
+    <table>
+        <tr>
+            <td style="width:50px"></td>
+            <td>
+                @RenderBody()
+            </td>
+        </tr>
+    </table>
+    
+   <footer>
+       <div class="float-left">
+            <p>&copy; @DateTime.Now.Year Agencyport All rights reserved</p>
+       </div>
+       @Html.Partial("_ViewSwitcher")
+   </footer>
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+</body>
+</html>

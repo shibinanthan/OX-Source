@@ -1,0 +1,19 @@
+﻿SQL Injection
+	   //101' or 1=1--
+       //103' or 1=1; select password from users--
+
+		//var sqlString = string.Format("SELECT * FROM Product WHERE ProductId=@ProductId", id);
+		   //if(!string.IsNullOrEmpty(id))
+                    //cmd.Parameters.Add("@ProductId", SqlDbType.VarChar).Value = id;
+
+ Access URL - 
+ http://localhost:36264/Product/Detail/103%27%20OR%201=1%20--
+ http://localhost:36264/Product/Detail/103%27%20or%201=1;%20select%20password%20from%20users--
+
+
+ CSRF
+
+		[HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Product product)
+        {

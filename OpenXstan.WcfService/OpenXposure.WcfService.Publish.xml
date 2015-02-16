@@ -1,0 +1,10 @@
+<publishData>
+  <publishTarget publishUrl="http://localhost:43441/">
+    <file relUrl="Web.config" publishTime="05/19/2014 15:23:52" />
+    <file relUrl="bin/OpenXposure.Common.dll" publishTime="05/19/2014 15:14:54" />
+    <file relUrl="bin/OpenXposure.Common.pdb" publishTime="05/19/2014 15:14:54" />
+    <file relUrl="bin/OpenXposure.WcfService.dll" publishTime="05/19/2014 15:14:54" />
+    <file relUrl="bin/OpenXposure.WcfService.dll.config" publishTime="05/19/2014 15:23:52" />
+    <file relUrl="bin/OpenXposure.WcfService.pdb" publishTime="05/19/2014 15:14:54" />
+  </publishTarget>
+</publishData>
